@@ -1,10 +1,10 @@
-# PageRank con SNAP + OpenMP
+PageRank con SNAP + OpenMP
 
 Implementación de PageRank que compara la versión **secuencial** (`TSnap::GetPageRank`) contra la versión **paralela** (`TSnap::GetPageRankMP`) de la librería SNAP, variando el número de hilos con OpenMP. Mide tiempo de ejecución, speedup y eficiencia para cuatro grafos web reales.
 
 ---
 
-## Dependencias
+Dependencias
 
 | Herramienta | Versión recomendada |
 |-------------|-------------------|
@@ -16,14 +16,14 @@ Implementación de PageRank que compara la versión **secuencial** (`TSnap::GetP
 
 ---
 
-## Instalación de SNAP
+Instalación de SNAP
 
 ```bash
-# Clonar SNAP en el home
+Clonar SNAP en el home
 cd ~
 git clone https://github.com/snap-stanford/snap.git
 
-# Compilar la librería base
+Compilar la librería base
 cd ~/snap/snap-core
 make
 ```
@@ -32,7 +32,7 @@ make
 
 ---
 
-## Datasets
+ Datasets
 
 Los grafos usados vienen de [SNAP Stanford](https://snap.stanford.edu/data/index.html#web). Descarga los que quieras y ponlos en la carpeta `datos/`:
 
@@ -45,14 +45,14 @@ Los grafos usados vienen de [SNAP Stanford](https://snap.stanford.edu/data/index
 
 ```bash
 mkdir -p datos
-# Ejemplo para web-Stanford:
+ Ejemplo para web-Stanford:
 wget -P datos/ https://snap.stanford.edu/data/web-Stanford.txt.gz
 gunzip datos/web-Stanford.txt.gz
 ```
 
 ---
 
-## Compilar
+Compilar
 
 ```bash
 make
@@ -62,7 +62,7 @@ Genera el binario `pagerank` en el directorio raíz.
 
 ---
 
-## Ejecutar
+Ejecutar
 
 **Una sola red:**
 ```bash
@@ -81,7 +81,7 @@ make todos
 
 ---
 
-## Resultados
+Resultados
 
 Por cada dataset se genera una carpeta en `resultados/<nombre>/` con:
 
@@ -96,7 +96,7 @@ Por cada dataset se genera una carpeta en `resultados/<nombre>/` con:
 
 ---
 
-## Parámetros de PageRank
+Parámetros de PageRank
 
 Los mismos para ambas versiones (defaults de SNAP):
 
@@ -106,7 +106,7 @@ Los mismos para ambas versiones (defaults de SNAP):
 
 ---
 
-## Limpieza
+Limpieza
 
 ```bash
 make clean   # elimina el binario y archivos .o
