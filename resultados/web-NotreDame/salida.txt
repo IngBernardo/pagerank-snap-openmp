@@ -1,0 +1,79 @@
+Cargando datos/web-NotreDame.txt ...
+Cargado en 0.43 s
+
+=== Datos de la red ===
+Nodos:                         325729
+Aristas:                       1497134
+Grado promedio (salida):       4.60
+Nodos colgantes (sin salida):  187788 (57.7%)
+Nodos sin aristas de entrada:  0 (0.0%)
+Grado maximo de entrada:       10721 (nodo 12129)
+Grado maximo de salida:        3445 (nodo 7137)
+Autoaristas (self-loops):      27455
+
+=== Configuracion ===
+Nucleos disponibles (omp_get_num_procs): 12
+C = 0.85, Eps = 0.0001, MaxIter = 100, repeticiones = 3
+
+Secuencial (GetPageRank):
+  corrida 1: 0.2998 s
+  corrida 2: 0.3499 s
+  corrida 3: 0.4321 s
+  promedio:  0.3606 s
+
+Paralelo (GetPageRankMP) con 1 hilo(s):
+  corrida 1: 0.4168 s
+  corrida 2: 0.3963 s
+  corrida 3: 0.3921 s
+  promedio:  0.4017 s   | dif. maxima vs secuencial: 0.000e+00
+
+Paralelo (GetPageRankMP) con 2 hilo(s):
+  corrida 1: 0.2330 s
+  corrida 2: 0.2293 s
+  corrida 3: 0.2294 s
+  promedio:  0.2306 s   | dif. maxima vs secuencial: 2.803e-15
+
+Paralelo (GetPageRankMP) con 4 hilo(s):
+  corrida 1: 0.1493 s
+  corrida 2: 0.1474 s
+  corrida 3: 0.1547 s
+  promedio:  0.1504 s   | dif. maxima vs secuencial: 9.289e-16
+
+Paralelo (GetPageRankMP) con 8 hilo(s):
+  corrida 1: 0.1387 s
+  corrida 2: 0.1347 s
+  corrida 3: 0.1363 s
+  promedio:  0.1366 s   | dif. maxima vs secuencial: 8.006e-16
+
+Paralelo (GetPageRankMP) con 12 hilo(s):
+  corrida 1: 0.1496 s
+  corrida 2: 0.1485 s
+  corrida 3: 0.1452 s
+  promedio:  0.1478 s   | dif. maxima vs secuencial: 1.011e-15
+
+=== Top-10 nodos por PageRank ===
+   #       Nodo       PageRank   GradoEnt   GradoSal
+   1       1963     0.00547495         66          7
+   2          0     0.00546819       7619         17
+   3      10336     0.00496779          3          1
+   4     212843     0.00379803       1239          1
+   5     124802     0.00322165       7026          0
+   6      12129     0.00271207      10721          0
+   7     191267     0.00266953       2347          2
+   8      32830     0.00266023         40          1
+   9      83606     0.00239439          4          0
+  10       1973     0.00230782       1972         45
+Suma de todos los PageRank: 1.000000 (debe ser ~1)
+
+=== Tiempos (promedio de 3 corridas) ===
+T secuencial = 0.3606 s
++-------+------------+---------+------------+
+| Hilos | Tiempo (s) | Speedup | Eficiencia |
++-------+------------+---------+------------+
+|     1 |     0.4017 |    0.90 |      89.8% |
+|     2 |     0.2306 |    1.56 |      78.2% |
+|     4 |     0.1504 |    2.40 |      59.9% |
+|     8 |     0.1366 |    2.64 |      33.0% |
+|    12 |     0.1478 |    2.44 |      20.3% |
++-------+------------+---------+------------+
+Guardado en resultados/web-NotreDame/: salida.txt, resultados.csv, grados_entrada.csv, grados_salida.csv

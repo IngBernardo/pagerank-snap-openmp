@@ -1,0 +1,79 @@
+Cargando datos/web-BerkStan.txt ...
+Cargado en 27.79 s
+
+=== Datos de la red ===
+Nodos:                         685230
+Aristas:                       7600595
+Grado promedio (salida):       11.09
+Nodos colgantes (sin salida):  4744 (0.7%)
+Nodos sin aristas de entrada:  68136 (9.9%)
+Grado maximo de entrada:       84208 (nodo 438238)
+Grado maximo de salida:        249 (nodo 292640)
+Autoaristas (self-loops):      0
+
+=== Configuracion ===
+Nucleos disponibles (omp_get_num_procs): 12
+C = 0.85, Eps = 0.0001, MaxIter = 100, repeticiones = 3
+
+Secuencial (GetPageRank):
+  corrida 1: 1.4406 s
+  corrida 2: 1.4590 s
+  corrida 3: 1.4618 s
+  promedio:  1.4538 s
+
+Paralelo (GetPageRankMP) con 1 hilo(s):
+  corrida 1: 1.5333 s
+  corrida 2: 1.5442 s
+  corrida 3: 1.5501 s
+  promedio:  1.5426 s   | dif. maxima vs secuencial: 0.000e+00
+
+Paralelo (GetPageRankMP) con 2 hilo(s):
+  corrida 1: 0.8538 s
+  corrida 2: 0.8586 s
+  corrida 3: 0.8860 s
+  promedio:  0.8661 s   | dif. maxima vs secuencial: 8.223e-16
+
+Paralelo (GetPageRankMP) con 4 hilo(s):
+  corrida 1: 0.5202 s
+  corrida 2: 0.5899 s
+  corrida 3: 0.5807 s
+  promedio:  0.5636 s   | dif. maxima vs secuencial: 5.898e-16
+
+Paralelo (GetPageRankMP) con 8 hilo(s):
+  corrida 1: 0.4747 s
+  corrida 2: 0.4952 s
+  corrida 3: 0.4868 s
+  promedio:  0.4856 s   | dif. maxima vs secuencial: 3.448e-16
+
+Paralelo (GetPageRankMP) con 12 hilo(s):
+  corrida 1: 0.5618 s
+  corrida 2: 0.5801 s
+  corrida 3: 0.4665 s
+  promedio:  0.5361 s   | dif. maxima vs secuencial: 3.491e-16
+
+=== Top-10 nodos por PageRank ===
+   #       Nodo       PageRank   GradoEnt   GradoSal
+   1     272919     0.00945840      42828         64
+   2     438238     0.00748719      84208         82
+   3     210376     0.00510111      43878        189
+   4     210305     0.00501718      43908         22
+   5     601656     0.00376261      30744         37
+   6     571448     0.00343136      16696         13
+   7     316792     0.00267871      10971          1
+   8     319209     0.00232006      21177          4
+   9     184094     0.00228309      44290         35
+  10     401873     0.00226355      48205         22
+Suma de todos los PageRank: 1.000000 (debe ser ~1)
+
+=== Tiempos (promedio de 3 corridas) ===
+T secuencial = 1.4538 s
++-------+------------+---------+------------+
+| Hilos | Tiempo (s) | Speedup | Eficiencia |
++-------+------------+---------+------------+
+|     1 |     1.5426 |    0.94 |      94.2% |
+|     2 |     0.8661 |    1.68 |      83.9% |
+|     4 |     0.5636 |    2.58 |      64.5% |
+|     8 |     0.4856 |    2.99 |      37.4% |
+|    12 |     0.5361 |    2.71 |      22.6% |
++-------+------------+---------+------------+
+Guardado en resultados/web-BerkStan/: salida.txt, resultados.csv, grados_entrada.csv, grados_salida.csv

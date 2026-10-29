@@ -1,0 +1,79 @@
+Cargando datos/web-Stanford.txt ...
+Cargado en 11.84 s
+
+=== Datos de la red ===
+Nodos:                         281903
+Aristas:                       2312497
+Grado promedio (salida):       8.20
+Nodos colgantes (sin salida):  172 (0.1%)
+Nodos sin aristas de entrada:  20315 (7.2%)
+Grado maximo de entrada:       38606 (nodo 226411)
+Grado maximo de salida:        255 (nodo 82409)
+Autoaristas (self-loops):      0
+
+=== Configuracion ===
+Nucleos disponibles (omp_get_num_procs): 12
+C = 0.85, Eps = 0.0001, MaxIter = 100, repeticiones = 3
+
+Secuencial (GetPageRank):
+  corrida 1: 0.8797 s
+  corrida 2: 0.9081 s
+  corrida 3: 0.8584 s
+  promedio:  0.8821 s
+
+Paralelo (GetPageRankMP) con 1 hilo(s):
+  corrida 1: 0.8782 s
+  corrida 2: 0.8559 s
+  corrida 3: 0.8656 s
+  promedio:  0.8666 s   | dif. maxima vs secuencial: 0.000e+00
+
+Paralelo (GetPageRankMP) con 2 hilo(s):
+  corrida 1: 0.4605 s
+  corrida 2: 0.4677 s
+  corrida 3: 0.4662 s
+  promedio:  0.4648 s   | dif. maxima vs secuencial: 1.629e-15
+
+Paralelo (GetPageRankMP) con 4 hilo(s):
+  corrida 1: 0.3295 s
+  corrida 2: 0.3999 s
+  corrida 3: 0.3383 s
+  promedio:  0.3559 s   | dif. maxima vs secuencial: 3.976e-15
+
+Paralelo (GetPageRankMP) con 8 hilo(s):
+  corrida 1: 0.4041 s
+  corrida 2: 0.4037 s
+  corrida 3: 0.4053 s
+  promedio:  0.4043 s   | dif. maxima vs secuencial: 4.448e-15
+
+Paralelo (GetPageRankMP) con 12 hilo(s):
+  corrida 1: 0.5558 s
+  corrida 2: 0.5735 s
+  corrida 3: 0.4446 s
+  promedio:  0.5246 s   | dif. maxima vs secuencial: 3.959e-15
+
+=== Top-10 nodos por PageRank ===
+   #       Nodo       PageRank   GradoEnt   GradoSal
+   1      89073     0.01130413      15277         64
+   2     226411     0.00926865      38606         20
+   3     241454     0.00829853      19377         64
+   4     262860     0.00302364       1802          1
+   5     134832     0.00300135      10336          7
+   6     234704     0.00257199      21920         23
+   7     136821     0.00245370       4906         14
+   8      68889     0.00243078       4907         12
+   9     105607     0.00239127      19457         35
+  10      69358     0.00236407      13936          7
+Suma de todos los PageRank: 1.000000 (debe ser ~1)
+
+=== Tiempos (promedio de 3 corridas) ===
+T secuencial = 0.8821 s
++-------+------------+---------+------------+
+| Hilos | Tiempo (s) | Speedup | Eficiencia |
++-------+------------+---------+------------+
+|     1 |     0.8666 |    1.02 |     101.8% |
+|     2 |     0.4648 |    1.90 |      94.9% |
+|     4 |     0.3559 |    2.48 |      62.0% |
+|     8 |     0.4043 |    2.18 |      27.3% |
+|    12 |     0.5246 |    1.68 |      14.0% |
++-------+------------+---------+------------+
+Guardado en resultados/web-Stanford/: salida.txt, resultados.csv, grados_entrada.csv, grados_salida.csv

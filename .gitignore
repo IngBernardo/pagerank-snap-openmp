@@ -1,0 +1,4 @@
+datos/
+pagerank
+*.o
+__pycache__/
